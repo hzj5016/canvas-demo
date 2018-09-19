@@ -7,14 +7,35 @@ var prePoint = { x: undefined, y: undefined }
 listenToUser(canvas)
 /************************************** */
 var eraserEnabled = false
-eraser.onclick = function () {
-    eraserEnabled = true
-    actions.className = 'actions x'
-}
-
-brush.onclick = function(){
+//------------
+pen.onclick = function(){
     eraserEnabled = false
-    actions.className = 'actions'
+    pen.classList.add('active')
+    eraser.classList.remove('active')
+}
+eraser.onclick = function(){
+    eraserEnabled = true
+    eraser.classList.add('active')
+    pen.classList.remove('active')
+}
+//颜色选择
+red.onclick = function(){
+    ctx.strokeStyle = 'red'
+    red.className = 'red active'
+    green.className = 'green'
+    yellow.className = 'yellow'
+}
+green.onclick = function(){
+    ctx.strokeStyle = 'green'
+    green.className = 'green active'
+    red.className = 'red'
+    yellow.className = 'yellow'
+}
+yellow.onclick = function(){
+    ctx.strokeStyle = 'yellow'
+    yellow.className = 'yellow active'
+    green.className = 'green'
+    red.className = 'red'
 }
 //画线
 function drawLine(x1, y1, x2, y2) {
