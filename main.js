@@ -7,6 +7,7 @@ var prePoint = { x: undefined, y: undefined }
 listenToUser(canvas)
 /************************************** */
 var eraserEnabled = false
+var lineWidth = 5
 //------------
 pen.onclick = function(){
     eraserEnabled = false
@@ -37,11 +38,29 @@ yellow.onclick = function(){
     green.className = 'green'
     red.className = 'red'
 }
+thin.onclick = function(){
+    lineWidth = 5
+}
+thick.onclick = function(){
+    lineWidth = 10
+}
+clear.onclick = function(){
+    ctx.clearRect(0,0,canvas.width,canvas.height)
+}
+save.onclick = function(){
+    var url = canvas.toDataURL("image/png")
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = "我的作品"
+    a.target = "_black"
+    a.click()
+}
 //画线
 function drawLine(x1, y1, x2, y2) {
     ctx.beginPath();
     ctx.moveTo(x1, y1);
-    ctx.lineWidth = 5
+    ctx.lineWidth = lineWidth
     ctx.lineTo(x2, y2);
     ctx.stroke();
 }

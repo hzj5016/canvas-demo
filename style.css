@@ -67,3 +67,21 @@ body{
 .colors li.yellow.active{
     border: 3px solid yellow;
 }
+.size{
+    position: fixed;
+    top: 5px;
+    right: 20px;
+}
+.size> li{
+    margin: 20px 0;
+}
+.size> .thin{
+    height: 0;
+    width: 20px;
+    border-top: 3px solid black;
+}
+.size> .thick{
+    height: 0;
+    width: 20px;
+    border-top: 6px solid black;
+}
